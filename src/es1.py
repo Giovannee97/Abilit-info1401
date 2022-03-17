@@ -7,8 +7,9 @@ class SpPoint:
     self.z=float(z)
 
   def delta(aa,bb):
-    print(math.sqrt((aa.x-bb.x)**2+(aa.y-bb.y)**2+(aa.z-bb.z)**2))
+    print("Distanza:", math.sqrt((aa.x-bb.x)**2+(aa.y-bb.y)**2+(aa.z-bb.z)**2))
 
+"""
 coord=[0,0,0,0,0,0]
 
 for i in range(0,3):
@@ -19,6 +20,12 @@ for j in range(3,6):
 
 p0=SpPoint(coord[0],coord[1],coord[2])
 p1=SpPoint(coord[3],coord[4],coord[5])
+
+aa=p0
+bb=p1
+
+SpPoints.delta(aa,bb)
+"""
 
 n=int(input("Quanti punti?"))
 
