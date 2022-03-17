@@ -35,7 +35,7 @@ print(matrix)
 pts=[]
 
 i=0
-for i in range(len(matrix)-1):
+for i in range(len(matrix)):
   pts.append((SpPoint(matrix[i][0],matrix[i][1],matrix[i][2])))
 
 print("Tra quali due punti vuoi calcolare la distanza?")
@@ -43,8 +43,6 @@ temp1=int(input("primo punto"))
 temp2=int(input("secondo punto"))
 
 aa=pts[temp1]
-bb=pts[temp1]
-
-print(type(aa))
+bb=pts[temp2]
 
 SpPoint.delta(aa,bb)
