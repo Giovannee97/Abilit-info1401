@@ -11,4 +11,4 @@ x=[]
 
 x.append(((1.0/len(coord))*coord.sum(axis=0)))
 
-print("Le coordinate del baricentro sono:",x[0])
+print("Le coordinate del Baricentro sono:",x[0])
