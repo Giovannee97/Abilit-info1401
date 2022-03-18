@@ -7,19 +7,32 @@ class CS:
     print("Ho aggiunto la squadra:",self.name,self.score)
   def __delete__(self):
     print("Squadra eliminata")
+
+teams=[]
+
+temp1="sì"
+
+while temp1=="sì":
     
-temp1=input(str("Vuoi aggiungere una squadra?"))
+  temp1=input(str("Vuoi aggiungere una squadra?"))
 
-if temp1=="sì":
-  name=str(input("nome squadra:"))
-  score=float(input("punteggio:"))
+  if temp1=="sì":
+    name=str(input("nome squadra:"))
+    score=float(input("punteggio:"))
 
-  obj=CS(name,score)
-  CS.add(obj)
+    obj=CS(name,score)
+    CS.add(obj)
 
-else:
-  temp2=input(str("Vuoi eliminare una squadra?"))
-  if temp2=="sì":
-    name=str(input("nome squadra da eliminare:"))
+    teams.append(obj) 
+
+  elif temp1=="no":
+    temp2=input(str("Vuoi eliminare una squadra?"))
+    if temp2=="sì":
+      name=str(input("nome squadra da eliminare:"))
+      for name in teams:
+        b=obj.name
+        print(b)
+
+    
     
   
