@@ -3,11 +3,19 @@ class CS:
     self.name=str(name)
     self.score=float(score)
 
-  def add(self,c,d):
+  def add(self):
     print("Ho aggiunto la squadra:",self.name,self.score)
     
-  def printa(self):
-    print(self.name,self.score)
+  def printa(temp3,nteams,teams):
+    
+    if temp3=="sì":
+      namesrc=str(input("Nome squadra da visualizzare:"))
+    
+      for i in range(len(nteams)):
+        if namesrc==nteams[i]:
+          print(teams[i].name,teams[i].score)
+    else:
+      pass
     
   def score(self):
     return self.score
@@ -84,16 +92,9 @@ temp3="sì"
 while temp3=="sì":
   
   temp3=input(str("Vuoi visualizzare una squadra?"))
-  
-  if temp3=="sì":
-    namesrc=str(input("Nome squadra da visualizzare:"))
-    
-    for i in range(len(nteams)):
-      if namesrc==nteams[i]:
-        CS.printa(teams[i])
-  else:
-    pass
 
+  CS.printa(temp3,nteams,teams)
+  
 else:
   pass
   
