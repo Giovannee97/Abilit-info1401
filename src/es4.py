@@ -3,7 +3,7 @@ class CS:
     self.name=str(name)
     self.score=float(score)
 
-  def add(self):
+  def add(self,c,d):
     print("Ho aggiunto la squadra:",self.name,self.score)
     
   def printa(self):
@@ -13,8 +13,6 @@ class CS:
     return self.score
     
   def winner(a,b):
-    print("b=",b)
-    print("a=",a)
     pool=[]
     for k in range(b):
       
