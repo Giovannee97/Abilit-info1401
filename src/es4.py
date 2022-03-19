@@ -6,9 +6,6 @@ class CS:
   def add(self):
     print("Ho aggiunto la squadra:",self.name,self.score)
     
-  def __del__(self):
-    print("Squadra eliminata")
-    
   def printa(self):
     print(self.name,self.score)
     
@@ -16,11 +13,15 @@ class CS:
     return self.score
     
   def winner(a,b):
+    print("b=",b)
+    print("a=",a)
+    pool=[]
     for k in range(b):
-      pool=[]
+      
       pool.append(a[k].score)
+
     j=pool.index(max(pool))
-    print("Squadra con punteggio più alto:",a[j].name)
+    print("Squadra Vincitrice:",a[j].name, "con:",a[j].score,"pti")
     
 
 teams=[]
@@ -69,11 +70,9 @@ while temp2=="sì":
     
     for i in range(count):
       if namedel==nteams[i]:
-        del teams[i]
-        
-        print("teams",teams)
+        del (teams[i])
+        print("Squadra eliminata")
         nteams.pop(i)
-      
       else:
         pass
   else:
@@ -81,8 +80,6 @@ while temp2=="sì":
 
 else:
   pass
-
-print("count:",count)
 
 temp3="sì"
 
