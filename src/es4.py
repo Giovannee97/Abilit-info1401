@@ -5,14 +5,28 @@ class CS:
 
   def add(self):
     print("Ho aggiunto la squadra:",self.name,self.score)
+    
   def __del__(self):
     print("Squadra eliminata")
+    
   def printa(self):
     print(self.name,self.score)
+    
+  def score(self):
+    return self.score
+    
+  def winner(a,b):
+    for k in range(b):
+      pool=[]
+      pool.append(a[k].score)
+    j=pool.index(max(pool))
+    print("Squadra con punteggio più alto:",a[j].name)
+    
 
 teams=[]
 nteams=[]
 steams=[]
+count=int(0)
 
 temp1="sì"
 
@@ -22,8 +36,8 @@ while temp1=="sì":
 
   if temp1=="sì":
   
-    name=str(input("nome squadra:"))
-    score=float(input("punteggio:"))
+    name=str(input("Nome squadra:"))
+    score=float(input("Punteggio:"))
     
     obj=CS(name,score)
     CS.add(obj)
@@ -31,39 +45,53 @@ while temp1=="sì":
     teams.append(obj) 
     nteams.append(obj.name)
     steams.append(obj.score)
+    count +=1
+    
     
   else:
     pass
 
 else:
   pass
+
+#print("teams",teams)
+#print("nteams",nteams)
 
 temp2="sì"
 
 while temp2=="sì":
   
-  temp2=input(str("Vuoi eliminare una squadra?"))
+  temp2=str(input("Vuoi eliminare una squadra?"))
   
   if temp2=="sì":
-    namedel=str(input("nome squadra da eliminare:"))
+    namedel=str(input("Nome squadra da eliminare:"))
+    count -=1
     
-    for i in range(len(nteams)):
+    for i in range(count):
       if namedel==nteams[i]:
         del teams[i]
+        
+        print("teams",teams)
+        nteams.pop(i)
+      
+      else:
+        pass
   else:
     pass
 
 else:
   pass
 
+print("count:",count)
+
 temp3="sì"
 
 while temp3=="sì":
   
-  temp2=input(str("Vuoi visualizzare una squadra?"))
+  temp3=input(str("Vuoi visualizzare una squadra?"))
   
   if temp3=="sì":
-    namesrc=str(input("nome squadra da visualizzare:"))
+    namesrc=str(input("Nome squadra da visualizzare:"))
     
     for i in range(len(nteams)):
       if namesrc==nteams[i]:
@@ -73,3 +101,12 @@ while temp3=="sì":
 
 else:
   pass
+  
+temp4=input(str("Vuoi visualizzare il vincitore?"))
+  
+if temp4=="sì":
+    CS.winner(teams,count)
+
+else:
+  pass
+
