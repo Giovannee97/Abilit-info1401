@@ -18,13 +18,15 @@ class mat:
 
   def matprod(self,c):
     import numpy
-    
-    if np.shape(self)[1]!=np.shape(c)[0]:
-      raise ("Impossibile fare il prodotto tra le due matrici")
-    d=numpy.matmul(self,c)
-    print("Prodotto matriciale:")
-    print(d)
-    return d
+
+    try:
+      np.shape(self)[1]!=np.shape(c)[0]
+      d=numpy.matmul(self,c)
+      print("Prodotto matriciale:")
+      print(d)
+      return d
+    except ValueError:
+      print("Impossibile moltiplicare due matrici così")
 
 import numpy as np
 
