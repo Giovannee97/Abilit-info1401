@@ -12,18 +12,43 @@ class vect:
     print("Prodotto scalare:",c)
     return c
 
-a=input("Primo vettore:")
-b=input("Secondo vettore:")
+class mat:
+  def __init__(self,a):
+    self.a=list()
 
-a=a.split(",")
-b=b.split(",")
+  def matprod(self,c):
+    import numpy
+    print("lenself", np.shape(self)[1])
+    print("lenb",np.shape(b)[0])
+    
+    if np.shape(self)[1]!=np.shape(b)[0]:
+      raise ("Impossibile fare il prodotto tra le due matrici")
+    d=numpy.matmul(self,c)
+    print("Prodotto matriciale:",d)
+    return d
 
-c=[]
-d=[]
+import numpy as np
 
-c=[float(x) for x in a]
-d=[float(x) for x in b]
+a=np.loadtxt("vec1.txt", dtype='f', delimiter=None)
+b=np.loadtxt("vec2.txt", dtype='f', delimiter=None)
 
-print(c,d)
+#a=a.split(",")
+#b=b.split(",")
 
-vect.dot(c,d)
+#c=[float(x) for x in a]
+#d=[float(x) for x in b]
+
+#c=list(map(float,a))
+#d=list(map(float,b))
+
+print(a,b)
+
+vect.dot(a,b)
+
+mat1 = np.loadtxt("mat1.txt", dtype='f', delimiter=None)
+mat2 = np.loadtxt("mat2.txt", dtype='f', delimiter=None)
+
+print(mat1,mat2)
+
+mat.matprod(mat1,mat2)
+
