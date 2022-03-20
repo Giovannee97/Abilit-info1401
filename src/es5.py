@@ -48,7 +48,8 @@ vect.dot(a,b)
 mat1 = np.loadtxt("mat1.txt", dtype='f', delimiter=None)
 mat2 = np.loadtxt("mat2.txt", dtype='f', delimiter=None)
 
-print(mat1,mat2)
+print(mat1)
+print(mat2)
 
 mat.matprod(mat1,mat2)
 
