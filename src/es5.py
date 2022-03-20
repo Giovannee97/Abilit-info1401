@@ -18,13 +18,12 @@ class mat:
 
   def matprod(self,c):
     import numpy
-    print("lenself", np.shape(self)[1])
-    print("lenb",np.shape(b)[0])
     
-    if np.shape(self)[1]!=np.shape(b)[0]:
+    if np.shape(self)[1]!=np.shape(c)[0]:
       raise ("Impossibile fare il prodotto tra le due matrici")
     d=numpy.matmul(self,c)
-    print("Prodotto matriciale:",d)
+    print("Prodotto matriciale:")
+    print(d)
     return d
 
 import numpy as np
@@ -41,15 +40,10 @@ b=np.loadtxt("vec2.txt", dtype='f', delimiter=None)
 #c=list(map(float,a))
 #d=list(map(float,b))
 
-print(a,b)
-
 vect.dot(a,b)
 
 mat1 = np.loadtxt("mat1.txt", dtype='f', delimiter=None)
 mat2 = np.loadtxt("mat2.txt", dtype='f', delimiter=None)
-
-print(mat1)
-print(mat2)
 
 mat.matprod(mat1,mat2)
 
