@@ -28,7 +28,23 @@ class CS:
 
     j=pool.index(max(pool))
     print("Squadra Vincitrice:",a[j].name, "con:",a[j].score,"pti")
-    
+
+  def looser(a,b):
+    pool=[]
+    loosers=[]
+    for k in range(b):
+      
+      pool.append(a[k].score)
+
+    for z in range(0,3):
+      j=pool.index(min(pool))
+      loosers.append([a[j].name,a[j].score])
+      pool.pop(j)
+      a.pop(j)
+
+    print("Gli ultimi tre in classifica sono:",loosers)
+
+#####################################################
 
 teams=[]
 nteams=[]
@@ -44,6 +60,8 @@ while temp1=="sì":
   if temp1=="sì":
   
     name=str(input("Nome squadra:"))
+    if name in nteams:
+      raise TypeError("Squadra già inserita")
     score=float(input("Punteggio:"))
     
     obj=CS(name,score)
@@ -72,6 +90,8 @@ while temp2=="sì":
   
   if temp2=="sì":
     namedel=str(input("Nome squadra da eliminare:"))
+    if namedel not in nteams:
+      raise TypeError("Squadra non presente, digita di nuovo")
     count -=1
     
     for i in range(count):
@@ -106,3 +126,4 @@ if temp4=="sì":
 else:
   pass
 
+CS.looser(teams,count)
