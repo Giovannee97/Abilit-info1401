@@ -5,21 +5,6 @@ class CS:
 
   def add(self):
     print("Ho aggiunto la squadra:",self.name,self.score)
-
-  def delete(a,b,count):
-    namedel=str(input("Nome squadra da eliminare:")) 
-    count -=1
-
-    for i in range(count):
-      
-      if namedel==a[i]:
-        del (b[i])
-        print("Squadra eliminata")
-        a.pop(i)
-      else:
-        pass
-
-    return count
     
   def printa(temp3,nteams,teams):
     
@@ -73,8 +58,10 @@ while temp1=="sì":
   temp1=input(str("Vuoi aggiungere una squadra?"))
 
   if temp1=="sì":
-    
+  
     name=str(input("Nome squadra:"))
+    if name in nteams:
+      raise TypeError("Squadra già inserita")
     score=float(input("Punteggio:"))
     
     obj=CS(name,score)
@@ -84,6 +71,7 @@ while temp1=="sì":
     nteams.append(obj.name)
     steams.append(obj.score)
     count +=1
+    
     
   else:
     pass
@@ -101,8 +89,18 @@ while temp2=="sì":
   temp2=str(input("Vuoi eliminare una squadra?"))
   
   if temp2=="sì":
-    CS.delete(nteams,teams,count)
+    namedel=str(input("Nome squadra da eliminare:"))
+    if namedel not in nteams:
+      raise TypeError("Squadra non presente, digita di nuovo")
+    count -=1
     
+    for i in range(count):
+      if namedel==nteams[i]:
+        del (teams[i])
+        print("Squadra eliminata")
+        nteams.pop(i)
+      else:
+        pass
   else:
     pass
 
